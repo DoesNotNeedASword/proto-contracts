@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message User {
+  int64 id = 1;
+  string name = 2;
+  int64 tg_id = 3;
+  string phone = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp last_active_at = 6;
+}
+
+message UserRef {
+  int64 id = 1;
+  string name = 2;
+}

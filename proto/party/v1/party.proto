@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package party.v1;
+
+message Party {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  string promises = 4;
+  string image_url = 5;
+  PartyModerationStatus moderation_status = 6;
+  string moderation_reason = 7;
+}
+
+message PartyRef {
+  int64 id = 1;
+  string name = 2;
+  string image_url = 3;
+}
+
+enum PartyModerationStatus {
+  PARTY_MODERATION_STATUS_UNSPECIFIED = 0;
+  PARTY_MODERATION_STATUS_PENDING = 1;
+  PARTY_MODERATION_STATUS_APPROVED = 2;
+  PARTY_MODERATION_STATUS_REJECTED = 3;
+}

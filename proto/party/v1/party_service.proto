@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package party.v1;
+
+import "buf/validate/validate.proto";
+import "google/api/annotations.proto";
+import "party/v1/party.proto";
+
+service PartyService {
+  rpc CreateParty(CreatePartyRequest) returns (CreatePartyResponse) {
+    option (google.api.http) = {
+      post: "/v1/parties"
+      body: "*"
+    };
+  }
+
+  rpc GetParty(GetPartyRequest) returns (GetPartyResponse) {
+    option (google.api.http) = {get: "/v1/parties/{id}"};
+  }
+
+  rpc ListParties(ListPartiesRequest) returns (ListPartiesResponse) {
+    option (google.api.http) = {get: "/v1/parties"};
+  }
+
+  rpc UpdatePartyModeration(UpdatePartyModerationRequest) returns (UpdatePartyModerationResponse) {
+    option (google.api.http) = {
+      patch: "/v1/parties/{id}/moderation"
+      body: "*"
+    };
+  }
+}
+
+message CreatePartyRequest {
+  string name = 1 [(buf.validate.field).string.min_len = 1];
+  string description = 2;
+  string promises = 3;
+  string image_url = 4;
+}
+
+message CreatePartyResponse {
+  Party party = 1;
+}
+
+message GetPartyRequest {
+  int64 id = 1 [(buf.validate.field).int64.gt = 0];
+}
+
+message GetPartyResponse {
+  Party party = 1;
+}
+
+message ListPartiesRequest {
+  int32 page_size = 1 [(buf.validate.field).int32.lte = 100];
+  string page_token = 2;
+  PartyModerationStatus moderation_status = 3;
+}
+
+message ListPartiesResponse {
+  repeated Party parties = 1;
+  string next_page_token = 2;
+}
+
+message UpdatePartyModerationRequest {
+  int64 id = 1 [(buf.validate.field).int64.gt = 0];
+  PartyModerationStatus moderation_status = 2;
+  string moderation_reason = 3;
+}
+
+message UpdatePartyModerationResponse {
+  Party party = 1;
+}

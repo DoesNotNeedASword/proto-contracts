@@ -1,0 +1,939 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "party/v1/party.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "PartyService"
+    },
+    {
+      "name": "UserService"
+    },
+    {
+      "name": "VotingService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/parties": {
+      "get": {
+        "operationId": "PartyService_ListParties",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListPartiesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "moderationStatus",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PARTY_MODERATION_STATUS_UNSPECIFIED",
+              "PARTY_MODERATION_STATUS_PENDING",
+              "PARTY_MODERATION_STATUS_APPROVED",
+              "PARTY_MODERATION_STATUS_REJECTED"
+            ],
+            "default": "PARTY_MODERATION_STATUS_UNSPECIFIED"
+          }
+        ],
+        "tags": [
+          "PartyService"
+        ]
+      },
+      "post": {
+        "operationId": "PartyService_CreateParty",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreatePartyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreatePartyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PartyService"
+        ]
+      }
+    },
+    "/v1/parties/{id}": {
+      "get": {
+        "operationId": "PartyService_GetParty",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetPartyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "PartyService"
+        ]
+      }
+    },
+    "/v1/parties/{id}/moderation": {
+      "patch": {
+        "operationId": "PartyService_UpdatePartyModeration",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdatePartyModerationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PartyServiceUpdatePartyModerationBody"
+            }
+          }
+        ],
+        "tags": [
+          "PartyService"
+        ]
+      }
+    },
+    "/v1/users/{id}": {
+      "get": {
+        "operationId": "UserService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/users:batchGet": {
+      "post": {
+        "operationId": "UserService_BatchGetUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1BatchGetUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1BatchGetUsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/votings": {
+      "get": {
+        "operationId": "VotingService_ListVotings",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListVotingsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "states",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "VOTING_STATE_UNSPECIFIED",
+                "VOTING_STATE_DRAFT",
+                "VOTING_STATE_OPEN",
+                "VOTING_STATE_CLOSED",
+                "VOTING_STATE_CANCELLED"
+              ]
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      },
+      "post": {
+        "operationId": "VotingService_CreateVoting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateVotingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateVotingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      }
+    },
+    "/v1/votings/{id}": {
+      "get": {
+        "operationId": "VotingService_GetVoting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetVotingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      }
+    },
+    "/v1/votings/{id}:close": {
+      "post": {
+        "operationId": "VotingService_CloseVoting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CloseVotingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VotingServiceCloseVotingBody"
+            }
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      }
+    },
+    "/v1/votings/{id}:open": {
+      "post": {
+        "operationId": "VotingService_OpenVoting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OpenVotingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VotingServiceOpenVotingBody"
+            }
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      }
+    },
+    "/v1/votings/{votingId}/results": {
+      "get": {
+        "operationId": "VotingService_GetVotingResults",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetVotingResultsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "votingId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      }
+    },
+    "/v1/votings/{votingId}:castVote": {
+      "post": {
+        "operationId": "VotingService_CastVote",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CastVoteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "votingId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VotingServiceCastVoteBody"
+            }
+          }
+        ],
+        "tags": [
+          "VotingService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "PartyServiceUpdatePartyModerationBody": {
+      "type": "object",
+      "properties": {
+        "moderationStatus": {
+          "$ref": "#/definitions/v1PartyModerationStatus"
+        },
+        "moderationReason": {
+          "type": "string"
+        }
+      }
+    },
+    "VotingServiceCastVoteBody": {
+      "type": "object",
+      "properties": {
+        "optionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "VotingServiceCloseVotingBody": {
+      "type": "object"
+    },
+    "VotingServiceOpenVotingBody": {
+      "type": "object"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1BatchGetUsersRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "v1BatchGetUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1User"
+          }
+        }
+      }
+    },
+    "v1CastVoteResponse": {
+      "type": "object",
+      "properties": {
+        "vote": {
+          "$ref": "#/definitions/v1Vote"
+        }
+      }
+    },
+    "v1CloseVotingResponse": {
+      "type": "object",
+      "properties": {
+        "voting": {
+          "$ref": "#/definitions/v1Voting"
+        }
+      }
+    },
+    "v1CreatePartyRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "promises": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreatePartyResponse": {
+      "type": "object",
+      "properties": {
+        "party": {
+          "$ref": "#/definitions/v1Party"
+        }
+      }
+    },
+    "v1CreateVotingRequest": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "partyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "v1CreateVotingResponse": {
+      "type": "object",
+      "properties": {
+        "voting": {
+          "$ref": "#/definitions/v1Voting"
+        }
+      }
+    },
+    "v1GetPartyResponse": {
+      "type": "object",
+      "properties": {
+        "party": {
+          "$ref": "#/definitions/v1Party"
+        }
+      }
+    },
+    "v1GetUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1GetVotingResponse": {
+      "type": "object",
+      "properties": {
+        "voting": {
+          "$ref": "#/definitions/v1Voting"
+        }
+      }
+    },
+    "v1GetVotingResultsResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/v1VotingResults"
+        }
+      }
+    },
+    "v1ListPartiesResponse": {
+      "type": "object",
+      "properties": {
+        "parties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1Party"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ListVotingsResponse": {
+      "type": "object",
+      "properties": {
+        "votings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1Voting"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OpenVotingResponse": {
+      "type": "object",
+      "properties": {
+        "voting": {
+          "$ref": "#/definitions/v1Voting"
+        }
+      }
+    },
+    "v1OptionResult": {
+      "type": "object",
+      "properties": {
+        "optionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "party": {
+          "$ref": "#/definitions/v1PartyRef"
+        },
+        "votes": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1Party": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "promises": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "moderationStatus": {
+          "$ref": "#/definitions/v1PartyModerationStatus"
+        },
+        "moderationReason": {
+          "type": "string"
+        }
+      }
+    },
+    "v1PartyModerationStatus": {
+      "type": "string",
+      "enum": [
+        "PARTY_MODERATION_STATUS_UNSPECIFIED",
+        "PARTY_MODERATION_STATUS_PENDING",
+        "PARTY_MODERATION_STATUS_APPROVED",
+        "PARTY_MODERATION_STATUS_REJECTED"
+      ],
+      "default": "PARTY_MODERATION_STATUS_UNSPECIFIED"
+    },
+    "v1PartyRef": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdatePartyModerationResponse": {
+      "type": "object",
+      "properties": {
+        "party": {
+          "$ref": "#/definitions/v1Party"
+        }
+      }
+    },
+    "v1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tgId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastActiveAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1Vote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "votingId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "optionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1Voting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "$ref": "#/definitions/v1VotingState"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1VotingOption"
+          }
+        }
+      }
+    },
+    "v1VotingOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "partyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "party": {
+          "$ref": "#/definitions/v1PartyRef"
+        }
+      }
+    },
+    "v1VotingResults": {
+      "type": "object",
+      "properties": {
+        "votingId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1OptionResult"
+          }
+        },
+        "totalVotes": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1VotingState": {
+      "type": "string",
+      "enum": [
+        "VOTING_STATE_UNSPECIFIED",
+        "VOTING_STATE_DRAFT",
+        "VOTING_STATE_OPEN",
+        "VOTING_STATE_CLOSED",
+        "VOTING_STATE_CANCELLED"
+      ],
+      "default": "VOTING_STATE_UNSPECIFIED"
+    }
+  }
+}

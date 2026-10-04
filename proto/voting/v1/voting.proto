@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package voting.v1;
+
+import "google/protobuf/timestamp.proto";
+import "party/v1/party.proto";
+
+message Voting {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+  google.protobuf.Timestamp starts_at = 4;
+  google.protobuf.Timestamp ends_at = 5;
+  VotingState state = 6;
+  repeated VotingOption options = 7;
+}
+
+message VotingOption {
+  int64 id = 1;
+  int64 party_id = 2;
+  party.v1.PartyRef party = 3;
+}
+
+message Vote {
+  int64 id = 1;
+  int64 voting_id = 2;
+  int64 option_id = 3;
+  int64 user_id = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
+
+message VotingResults {
+  int64 voting_id = 1;
+  repeated OptionResult options = 2;
+  int64 total_votes = 3;
+}
+
+message OptionResult {
+  int64 option_id = 1;
+  party.v1.PartyRef party = 2;
+  int64 votes = 3;
+}
+
+enum VotingState {
+  VOTING_STATE_UNSPECIFIED = 0;
+  VOTING_STATE_DRAFT = 1;
+  VOTING_STATE_OPEN = 2;
+  VOTING_STATE_CLOSED = 3;
+  VOTING_STATE_CANCELLED = 4;
+}

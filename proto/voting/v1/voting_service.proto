@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package voting.v1;
+
+import "buf/validate/validate.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "voting/v1/voting.proto";
+
+service VotingService {
+  rpc CreateVoting(CreateVotingRequest) returns (CreateVotingResponse) {
+    option (google.api.http) = {
+      post: "/v1/votings"
+      body: "*"
+    };
+  }
+
+  rpc GetVoting(GetVotingRequest) returns (GetVotingResponse) {
+    option (google.api.http) = {get: "/v1/votings/{id}"};
+  }
+
+  rpc ListVotings(ListVotingsRequest) returns (ListVotingsResponse) {
+    option (google.api.http) = {get: "/v1/votings"};
+  }
+
+  rpc OpenVoting(OpenVotingRequest) returns (OpenVotingResponse) {
+    option (google.api.http) = {
+      post: "/v1/votings/{id}:open"
+      body: "*"
+    };
+  }
+
+  rpc CloseVoting(CloseVotingRequest) returns (CloseVotingResponse) {
+    option (google.api.http) = {
+      post: "/v1/votings/{id}:close"
+      body: "*"
+    };
+  }
+
+  rpc CastVote(CastVoteRequest) returns (CastVoteResponse) {
+    option (google.api.http) = {
+      post: "/v1/votings/{voting_id}:castVote"
+      body: "*"
+    };
+  }
+
+  rpc GetVotingResults(GetVotingResultsRequest) returns (GetVotingResultsResponse) {
+    option (google.api.http) = {get: "/v1/votings/{voting_id}/results"};
+  }
+}
+
+message CreateVotingRequest {
+  string title = 1 [(buf.validate.field).string.min_len = 1];
+  string description = 2;
+  google.protobuf.Timestamp starts_at = 3 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp ends_at = 4 [(buf.validate.field).required = true];
+  repeated int64 party_ids = 5 [
+    (buf.validate.field).repeated.min_items = 2,
+    (buf.validate.field).repeated.max_items = 50
+  ];
+}
+
+message CreateVotingResponse {
+  Voting voting = 1;
+}
+
+message GetVotingRequest {
+  int64 id = 1 [(buf.validate.field).int64.gt = 0];
+}
+
+message GetVotingResponse {
+  Voting voting = 1;
+}
+
+message ListVotingsRequest {
+  int32 page_size = 1 [(buf.validate.field).int32.lte = 100];
+  string page_token = 2;
+  repeated VotingState states = 3;
+}
+
+message ListVotingsResponse {
+  repeated Voting votings = 1;
+  string next_page_token = 2;
+}
+
+message OpenVotingRequest {
+  int64 id = 1 [(buf.validate.field).int64.gt = 0];
+}
+
+message OpenVotingResponse {
+  Voting voting = 1;
+}
+
+message CloseVotingRequest {
+  int64 id = 1 [(buf.validate.field).int64.gt = 0];
+}
+
+message CloseVotingResponse {
+  Voting voting = 1;
+}
+
+message CastVoteRequest {
+  int64 voting_id = 1 [(buf.validate.field).int64.gt = 0];
+  int64 option_id = 2 [(buf.validate.field).int64.gt = 0];
+  int64 user_id = 3 [(buf.validate.field).int64.gt = 0];
+}
+
+message CastVoteResponse {
+  Vote vote = 1;
+}
+
+message GetVotingResultsRequest {
+  int64 voting_id = 1 [(buf.validate.field).int64.gt = 0];
+}
+
+message GetVotingResultsResponse {
+  VotingResults results = 1;
+}

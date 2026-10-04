@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "buf/validate/validate.proto";
+import "google/api/annotations.proto";
+import "user/v1/user.proto";
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+    option (google.api.http) = {get: "/v1/users/{id}"};
+  }
+
+  rpc BatchGetUsers(BatchGetUsersRequest) returns (BatchGetUsersResponse) {
+    option (google.api.http) = {
+      post: "/v1/users:batchGet"
+      body: "*"
+    };
+  }
+}
+
+message GetUserRequest {
+  int64 id = 1 [(buf.validate.field).int64.gt = 0];
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message BatchGetUsersRequest {
+  repeated int64 ids = 1 [
+    (buf.validate.field).repeated.min_items = 1,
+    (buf.validate.field).repeated.max_items = 100
+  ];
+}
+
+message BatchGetUsersResponse {
+  repeated User users = 1;
+}
