@@ -473,8 +473,8 @@ const file_party_v1_party_service_proto_rawDesc = "" +
 	"\vCreateParty\x12\x1c.party.v1.CreatePartyRequest\x1a\x1d.party.v1.CreatePartyResponse\"\x16\x82\xd3\xe4\x93\x02\x10:\x01*\"\v/v1/parties\x12[\n" +
 	"\bGetParty\x12\x19.party.v1.GetPartyRequest\x1a\x1a.party.v1.GetPartyResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/parties/{id}\x12_\n" +
 	"\vListParties\x12\x1c.party.v1.ListPartiesRequest\x1a\x1d.party.v1.ListPartiesResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\v/v1/parties\x12\x90\x01\n" +
-	"\x15UpdatePartyModeration\x12&.party.v1.UpdatePartyModerationRequest\x1a'.party.v1.UpdatePartyModerationResponse\"&\x82\xd3\xe4\x93\x02 :\x01*2\x1b/v1/parties/{id}/moderationB\x9e\x01\n" +
-	"\fcom.party.v1B\x11PartyServiceProtoP\x01Z:github.com/DoesNotNeedASword/proto-contracts/gen/go/party/v1;partyv1\xa2\x02\x03PXX\xaa\x02\bParty.V1\xca\x02\bParty\\V1\xe2\x02\x14Party\\V1\\GPBMetadata\xea\x02\tParty::V1b\x06proto3"
+	"\x15UpdatePartyModeration\x12&.party.v1.UpdatePartyModerationRequest\x1a'.party.v1.UpdatePartyModerationResponse\"&\x82\xd3\xe4\x93\x02 :\x01*2\x1b/v1/parties/{id}/moderationB\xa8\x01\n" +
+	"\fcom.party.v1B\x11PartyServiceProtoP\x01ZDgithub.com/DoesNotNeedASword/proto-contracts/gen/go/party/v1;partyv1\xa2\x02\x03PXX\xaa\x02\bParty.V1\xca\x02\bParty\\V1\xe2\x02\x14Party\\V1\\GPBMetadata\xea\x02\tParty::V1b\x06proto3"
 
 var (
 	file_party_v1_party_service_proto_rawDescOnce sync.Once

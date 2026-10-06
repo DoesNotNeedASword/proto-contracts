@@ -764,8 +764,8 @@ const file_voting_v1_voting_service_proto_rawDesc = "" +
 	"OpenVoting\x12\x1c.voting.v1.OpenVotingRequest\x1a\x1d.voting.v1.OpenVotingResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/v1/votings/{id}:open\x12o\n" +
 	"\vCloseVoting\x12\x1d.voting.v1.CloseVotingRequest\x1a\x1e.voting.v1.CloseVotingResponse\"!\x82\xd3\xe4\x93\x02\x1b:\x01*\"\x16/v1/votings/{id}:close\x12p\n" +
 	"\bCastVote\x12\x1a.voting.v1.CastVoteRequest\x1a\x1b.voting.v1.CastVoteResponse\"+\x82\xd3\xe4\x93\x02%:\x01*\" /v1/votings/{voting_id}:castVote\x12\x84\x01\n" +
-	"\x10GetVotingResults\x12\".voting.v1.GetVotingResultsRequest\x1a#.voting.v1.GetVotingResultsResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/votings/{voting_id}/resultsB\xa6\x01\n" +
-	"\rcom.voting.v1B\x12VotingServiceProtoP\x01Z<github.com/DoesNotNeedASword/proto-contracts/gen/go/voting/v1;votingv1\xa2\x02\x03VXX\xaa\x02\tVoting.V1\xca\x02\tVoting\\V1\xe2\x02\x15Voting\\V1\\GPBMetadata\xea\x02\n" +
+	"\x10GetVotingResults\x12\".voting.v1.GetVotingResultsRequest\x1a#.voting.v1.GetVotingResultsResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/votings/{voting_id}/resultsB\xb0\x01\n" +
+	"\rcom.voting.v1B\x12VotingServiceProtoP\x01ZFgithub.com/DoesNotNeedASword/proto-contracts/gen/go/voting/v1;votingv1\xa2\x02\x03VXX\xaa\x02\tVoting.V1\xca\x02\tVoting\\V1\xe2\x02\x15Voting\\V1\\GPBMetadata\xea\x02\n" +
 	"Voting::V1b\x06proto3"
 
 var (

@@ -464,8 +464,8 @@ const file_voting_v1_voting_proto_rawDesc = "" +
 	"\x12VOTING_STATE_DRAFT\x10\x01\x12\x15\n" +
 	"\x11VOTING_STATE_OPEN\x10\x02\x12\x17\n" +
 	"\x13VOTING_STATE_CLOSED\x10\x03\x12\x1a\n" +
-	"\x16VOTING_STATE_CANCELLED\x10\x04B\x9f\x01\n" +
-	"\rcom.voting.v1B\vVotingProtoP\x01Z<github.com/DoesNotNeedASword/proto-contracts/gen/go/voting/v1;votingv1\xa2\x02\x03VXX\xaa\x02\tVoting.V1\xca\x02\tVoting\\V1\xe2\x02\x15Voting\\V1\\GPBMetadata\xea\x02\n" +
+	"\x16VOTING_STATE_CANCELLED\x10\x04B\xa9\x01\n" +
+	"\rcom.voting.v1B\vVotingProtoP\x01ZFgithub.com/DoesNotNeedASword/proto-contracts/gen/go/voting/v1;votingv1\xa2\x02\x03VXX\xaa\x02\tVoting.V1\xca\x02\tVoting\\V1\xe2\x02\x15Voting\\V1\\GPBMetadata\xea\x02\n" +
 	"Voting::V1b\x06proto3"
 
 var (

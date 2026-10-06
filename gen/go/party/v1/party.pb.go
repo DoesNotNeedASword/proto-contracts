@@ -246,9 +246,9 @@ const file_party_v1_party_proto_rawDesc = "" +
 	"#PARTY_MODERATION_STATUS_UNSPECIFIED\x10\x00\x12#\n" +
 	"\x1fPARTY_MODERATION_STATUS_PENDING\x10\x01\x12$\n" +
 	" PARTY_MODERATION_STATUS_APPROVED\x10\x02\x12$\n" +
-	" PARTY_MODERATION_STATUS_REJECTED\x10\x03B\x97\x01\n" +
+	" PARTY_MODERATION_STATUS_REJECTED\x10\x03B\xa1\x01\n" +
 	"\fcom.party.v1B\n" +
-	"PartyProtoP\x01Z:github.com/DoesNotNeedASword/proto-contracts/gen/go/party/v1;partyv1\xa2\x02\x03PXX\xaa\x02\bParty.V1\xca\x02\bParty\\V1\xe2\x02\x14Party\\V1\\GPBMetadata\xea\x02\tParty::V1b\x06proto3"
+	"PartyProtoP\x01ZDgithub.com/DoesNotNeedASword/proto-contracts/gen/go/party/v1;partyv1\xa2\x02\x03PXX\xaa\x02\bParty.V1\xca\x02\bParty\\V1\xe2\x02\x14Party\\V1\\GPBMetadata\xea\x02\tParty::V1b\x06proto3"
 
 var (
 	file_party_v1_party_proto_rawDescOnce sync.Once

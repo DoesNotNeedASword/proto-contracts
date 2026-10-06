@@ -27,5 +27,3 @@ go run github.com/bufbuild/buf/cmd/buf@latest dep update
 go run github.com/bufbuild/buf/cmd/buf@latest lint
 go run github.com/bufbuild/buf/cmd/buf@latest generate
 ```
-
-The module path is currently `github.com/DoesNotNeedASword/proto-contracts`. Replace it in `go.mod` and `buf.gen.yaml` when you choose the real GitHub repository path.

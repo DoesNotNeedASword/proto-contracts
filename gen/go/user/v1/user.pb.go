@@ -173,8 +173,8 @@ const file_user_v1_user_proto_rawDesc = "" +
 	"\x0elast_active_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\flastActiveAt\"-\n" +
 	"\aUserRef\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04nameB\x8f\x01\n" +
-	"\vcom.user.v1B\tUserProtoP\x01Z8github.com/DoesNotNeedASword/proto-contracts/gen/go/user/v1;userv1\xa2\x02\x03UXX\xaa\x02\aUser.V1\xca\x02\aUser\\V1\xe2\x02\x13User\\V1\\GPBMetadata\xea\x02\bUser::V1b\x06proto3"
+	"\x04name\x18\x02 \x01(\tR\x04nameB\x99\x01\n" +
+	"\vcom.user.v1B\tUserProtoP\x01ZBgithub.com/DoesNotNeedASword/proto-contracts/gen/go/user/v1;userv1\xa2\x02\x03UXX\xaa\x02\aUser.V1\xca\x02\aUser\\V1\xe2\x02\x13User\\V1\\GPBMetadata\xea\x02\bUser::V1b\x06proto3"
 
 var (
 	file_user_v1_user_proto_rawDescOnce sync.Once
