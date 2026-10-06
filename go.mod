@@ -1,4 +1,4 @@
-module github.com/yourorg/proto-contracts
+module github.com/DoesNotNeedASword/proto-contracts
 
 go 1.23
 
